@@ -34,7 +34,8 @@ class BookController extends Controller {
         $where = array('pid'=>'0');
         $res = $this->bookLogic->getBookList($where,$p);
         foreach($res as $k=> $v){
-            $res[$k]['cate'] = $this->categoryLogic->getCategoryById($v['cid'])['title'];
+            $cates = $this->categoryLogic->getCategoryById($v['cid']);
+            $res[$k]['cate'] = $cates['title'];
         }
         $this->data = $res;
         $this->total = $this->bookLogic->getBookTotal($where);

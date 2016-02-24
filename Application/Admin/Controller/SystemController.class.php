@@ -140,7 +140,8 @@ class SystemController extends Controller
     public function adminusermgr()
     {
         $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        $backurl = pathinfo($url)['dirname'].'/'.'usersmgr';
+        $data = pathinfo($url);
+        $backurl = $data['dirname'].'/'.'usersmgr';
         $this->checkPriv('9_2_1');
         $cond = array('Admin.issuper' => 0);
         $Admin = D('AdminuserView');
@@ -314,7 +315,8 @@ class SystemController extends Controller
 
     public function logout(){
         $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        $back_url = 'http://user.pinet.co/api/logout?appid=4000&template=user&callback='.pathinfo($url)['dirname'].'/adminusermgr.html';
+        $data = pathinfo($url);
+        $back_url = 'http://user.pinet.co/api/logout?appid=4000&template=user&callback='.$data['dirname'].'/adminusermgr.html';
         session(null);
         header('Location: '.$back_url.'');
 

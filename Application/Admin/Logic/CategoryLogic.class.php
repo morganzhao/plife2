@@ -30,7 +30,7 @@ class CategoryLogic extends \Think\Model{
             $mycond = $cond;
         }
         $pstr = $p.','.C('ADMIN_REC_PER_PAGE');
-        $data = $this->Category->where($mycond)->order('id asc')->select();
+        $data = $this->Category->where($mycond)->where('isdel is null')->order('id asc')->select();
         return $data;
     }
 
@@ -46,6 +46,15 @@ class CategoryLogic extends \Think\Model{
     public function getCategoryById($id){
         if($id){
             $data = $this->Category->where(array('id'=>$id))->find();
+            return $data;
+        }else{
+            return false;
+        }
+    }
+
+    public function getChildCateById($id){
+        if($id){
+            $data = $this->Category->where(array('pid'=>$id))->find();
             return $data;
         }else{
             return false;

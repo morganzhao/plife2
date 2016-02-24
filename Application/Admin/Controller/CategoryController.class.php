@@ -56,7 +56,7 @@ class CategoryController extends Controller {
             $p = getCurPage();
             $cates = getSortedCategory($this->categoryLogic->getCategoryList());
             $this->assign('cate',$cates);
-            $this->display("category/categoryedit");
+            $this->display("Category/categoryedit");
         }
     }
 

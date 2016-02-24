@@ -31,13 +31,13 @@ class BookController extends Controller {
     public function bookmgr(){
         $this->checkPriv('1_3_1');
         $p = getCurPage();
-        $where = array();
+        $where = array('pid'=>'0');
         $res = $this->bookLogic->getBookList($where,$p);
         foreach($res as $k=> $v){
             $res[$k]['cate'] = $this->categoryLogic->getCategoryById($v['cid'])['title'];
         }
         $this->data = $res;
-        $this->total = $this->bookLogic->getBookTotal();
+        $this->total = $this->bookLogic->getBookTotal($where);
         $show = constructAdminPage($this->total);
         $this->assign('page',$show);
         $this->display();
@@ -151,12 +151,12 @@ class BookController extends Controller {
     public function chaptermgr(){
         $this->checkPriv('1_3_1');
         $p = getCurPage();
-        $where = array();
-        $res = $this->bookLogic->getChapterList($where,$p);
+        $where = array('pid'=>I('get.pid'));
+        $res = $this->bookLogic->getChapterListById($where,$p);
         $this->data = $res;
-        $this->total = $this->bookLogic->getChapterTotal();
+        $this->total = $this->bookLogic->getChapterTotalById($where);
         $show = constructAdminPage($this->total);
-        $this->assign('id',I('get.id'));
+        $this->assign('id',I('get.pid'));
         $this->assign('page',$show);
         $this->display();
     }
@@ -172,14 +172,14 @@ class BookController extends Controller {
             $newdata['chapteraddress'] = I('post.chapteraddress');
             $newdata['chaptercontent'] = I('post.chaptercontent');
             $newdata['sort'] = I('post.sort');
-            $newdata['name'] = I('post.chaptertitle');
+            $newdata['chaptertitle'] = I('post.chaptertitle');
             $newdata['pid'] = I('post.bid');
             $data = $this->bookLogic->getBookParamById(I('post.bid'));
             $newdata['bookid'] = $data['bookid'];
             $newdata['createdate'] = date('Y-m-d H:i:s');
             $data = $this->Bookparam->add($newdata);
             if($data){
-                $this->redirect('Book/chaptermgr');
+                $this->redirect('Book/chaptermgr',array('id'=>$data['bid']));
             }else{
                 $this->error('插入数据错误');
             }
@@ -187,6 +187,7 @@ class BookController extends Controller {
             $id = I('get.id');
             $data = $this->bookLogic->getBookParamById($id);
             $this->data = $data;
+            $data['pname'] = $data['name'];
             $cate = $this->categoryLogic->getCategoryById($data['cid']);
             $this->assign('cate',$cate);
             $this->display("Book/chapteredit");
@@ -205,7 +206,7 @@ class BookController extends Controller {
             $newdata['chapteraddress'] = I('post.chapteraddress');
             $newdata['chaptercontent'] = I('post.chaptercontent');
             $newdata['sort'] = I('post.sort');
-            $newdata['name'] = I('post.chaptertitle');
+            $newdata['chaptertitle'] = I('post.chaptertitle');
             $data = $this->bookLogic->getBookParamById(I('post.id'));
             $newdata['bookid'] = $data['bookid'];
             $newdata['createdate'] = date('Y-m-d H:i:s');
@@ -220,9 +221,10 @@ class BookController extends Controller {
             $id = I('get.id');
             $pid = I('get.pid');
             $data = $this->bookLogic->getChapterParamById($id);
-            $this->data = $data;
             $res = $this->bookLogic->getBookParamById($pid);
+            $data['pname'] = $res['name'];
             $cate = $this->categoryLogic->getCategoryById($res['cid']);
+            $this->data = $data;
             $this->assign('cate',$cate);
             $this->display("Book/chapteredit");
         }

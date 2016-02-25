@@ -54,6 +54,15 @@ class BookLogic extends \Think\Model{
         }
     }
 
+    public function getBookParamByBookId($id){
+        if($id){
+            $data = $this->Bookparam->where('bookid = '.$id.' and pid =0')->find();
+            return $data;
+        }else{
+            return false;
+        }
+    }
+
     public function getChapterTotal($cond = array()){
         $mycond = array();
         if(is_array($cond) && count($cond)>0){

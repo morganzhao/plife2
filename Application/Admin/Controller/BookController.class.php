@@ -251,6 +251,8 @@ class BookController extends Controller {
         $res = $this->bookLogic->getRecordList($where,$p);
         foreach($res as $k=>$v){
             $res[$k]['username']=session('username');
+            $ks = $this->bookLogic->getBookParamByBookId($v['bookid']);
+            $res[$k]['bookname'] = $ks['name'];
         }
         $this->data = $res;
         $this->total = $this->bookLogic->getRecordTotal();

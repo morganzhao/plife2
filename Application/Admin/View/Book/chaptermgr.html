@@ -38,7 +38,7 @@
                             <td class="center">
                                 <a href="{:U('Book/readrecord',array('id'=>$vo['id'],'pid'=>$vo['pid']))}" type="button" class="btn btn-outline btn-primary btn-xs">记录用户阅读</a>
                                 <a href="{:U('Book/editchapter',array('id'=>$vo['id'],'pid'=>$vo['pid']))}" type="button" class="btn btn-outline btn-primary btn-xs">修改</a>
-                                <a type="button" class="btn btn-outline btn-primary btn-xs" href="{:U('Book/delchapter',array('id'=>$vo['id']))}" onclick="if(!confirm('您是否确定要删除该记录？？')){return  false;}">删除</a>
+                                <a type="button" class="btn btn-outline btn-primary btn-xs" href="{:U('Book/delchapter',array('id'=>$vo['id']))}" onclick="if(!confirm('您是否确定要删除该章节？')){return  false;}">删除</a>
                             </td>
                         </tr>
                     </volist>

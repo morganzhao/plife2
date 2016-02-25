@@ -23,7 +23,7 @@
                         <th width="15%">图书章节</th>
                         <th width="10%">阅读次数</th>
                         <th width="10%">阅读者</th>
-                        <th width="25%">操作</th>
+                        <!--<th width="25%">操作</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -33,10 +33,10 @@
                             <td>{$vo.chapter}</td>
                             <td>{$vo.hits}</td>
                             <td>{$vo.username}</td>
-                            <td class="center">
-                                <a href="{:U('Ads/editposition',array('id'=>$vo['id']))}" type="button" class="btn btn-outline btn-primary btn-xs">修改</a>
-                                <a type="button" class="btn btn-outline btn-primary btn-xs" href="{:U('Resource/delposition',array('id'=>$vo['id']))}" onclick="if(!confirm('您是否确定要删除该应用记录？？')){return  false;}">删除</a>
-                            </td>
+                            <!--<td class="center">-->
+                                <!--<a href="{:U('Ads/editposition',array('id'=>$vo['id']))}" type="button" class="btn btn-outline btn-primary btn-xs">修改</a>-->
+                                <!--<a type="button" class="btn btn-outline btn-primary btn-xs" href="{:U('Resource/delposition',array('id'=>$vo['id']))}" onclick="if(!confirm('您是否确定要删除该应用记录？？')){return  false;}">删除</a>-->
+                            <!--</td>-->
                         </tr>
                     </volist>
                     </tbody>

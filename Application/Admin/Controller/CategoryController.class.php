@@ -56,7 +56,7 @@ class CategoryController extends Controller {
             $p = getCurPage();
             $cates = getSortedCategory($this->categoryLogic->getCategoryList());
             $this->assign('cate',$cates);
-            $this->display("category/categoryedit");
+            $this->display("Category/categoryedit");
         }
     }
 
@@ -95,6 +95,10 @@ class CategoryController extends Controller {
         $this->checkPriv('1_3_4');
         $id = I('get.id','','int');
         if($id){
+            $cates = $this->categoryLogic->getChildCateById($id);
+            if($cates){
+                $this->error('请先删除此类别下面的子类别');
+            }
             $data['isdel']= date("Y-m-d H:i:s");;
             $this->Category->where('id='.$id)->save($data);
             $from = I('server.HTTP_REFERER');

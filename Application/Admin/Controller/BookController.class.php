@@ -34,7 +34,8 @@ class BookController extends Controller {
         $where = array('pid'=>'0');
         $res = $this->bookLogic->getBookList($where,$p);
         foreach($res as $k=> $v){
-            $res[$k]['cate'] = $this->categoryLogic->getCategoryById($v['cid'])['title'];
+            $cates = $this->categoryLogic->getCategoryById($v['cid']);
+            $res[$k]['cate'] = $cates['title'];
         }
         $this->data = $res;
         $this->total = $this->bookLogic->getBookTotal($where);
@@ -73,7 +74,7 @@ class BookController extends Controller {
         }else{
             $cates = getSortedCategory($this->categoryLogic->getCategoryList());
             $this->assign('cate',$cates);
-            $this->display("book/bookedit");
+            $this->display("Book/bookedit");
         }
     }
 
@@ -99,7 +100,7 @@ class BookController extends Controller {
             }
             $ret = $this->Bookparam->where('id='.$id)->save($newdata);
             if($ret){
-                $this->redirect('book/bookmgr');
+                $this->redirect('Book/bookmgr');
             }else{
                 $this->assign('errcode','1');  // 修改失败
                 $this->error('编辑数据错误');
@@ -186,8 +187,8 @@ class BookController extends Controller {
         }else{
             $id = I('get.id');
             $data = $this->bookLogic->getBookParamById($id);
-            $this->data = $data;
             $data['pname'] = $data['name'];
+            $this->data = $data;
             $cate = $this->categoryLogic->getCategoryById($data['cid']);
             $this->assign('cate',$cate);
             $this->display("Book/chapteredit");

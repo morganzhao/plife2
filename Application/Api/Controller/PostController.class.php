@@ -18,7 +18,7 @@ class PostController extends Controller
      * 文章查询接口
      * @return json : data
      */
-    public function getpostlists()
+    public function GetPosts()
     {
         $data = $this->postLogic->getPostList();
         $this->ajaxReturn($data);

@@ -17,7 +17,7 @@ class IndexFunctionController extends Controller
      * 首页功能文字描述查询接口
      * @return json : data
      */
-    public function getindexfunctions()
+    public function GetFunctions()
     {
         $data = $this->functionLogic->getFunctionList();
         $this->ajaxReturn($data);

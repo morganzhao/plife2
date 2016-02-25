@@ -19,7 +19,7 @@ class CategoryController extends Controller
      * @param int type : （可选）类型：1:视频（默认）  2:app 3:图书 4:装机分类
      * @return json : data
      */
-    public function getcategories()
+    public function GetCategories()
     {
         $type = I('post.type', '', 'int') ? I('post.type', '', 'int') : 1;
         $data = $this->categoryLogic->getCategoryList($type);

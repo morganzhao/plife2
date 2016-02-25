@@ -13,7 +13,7 @@ class ConfigController extends Controller
      * 后台增加系统配置参数和参数查询接口
      * @return json : data
      */
-    public function getconfig()
+    public function GetConfig()
     {
         $data = C('REFRESH_TIME');
         $this->ajaxReturn($data);

@@ -23,7 +23,7 @@ class BookController extends Controller
      * 图书获取接口
      * @return json : data
      */
-    public function GetBooks()
+    public function getbooklists()
     {
         $data = $this->bookLogic->getBookList();
         $this->ajaxReturn($data);
@@ -33,7 +33,7 @@ class BookController extends Controller
      * 用户浏览图书记录接口
      * @return json : data
      */
-    public function GetReadRecords()
+    public function getreadrecordlists()
     {
         $data = $this->bookLogic->getReadRecordList();
         $this->ajaxReturn($data);

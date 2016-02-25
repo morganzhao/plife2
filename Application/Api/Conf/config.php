@@ -3,6 +3,7 @@ return array(
 	//'配置项'=>'配置值'
     'MOB_REC_PER_PAGE' => 10,
     'MMS_SERVER'=> 'http://192.168.11.110/plife/videos',
+    'REFRESH_TIME' => 10,
     'video_columns'=>array(
         array(
             'name'=>'movie',

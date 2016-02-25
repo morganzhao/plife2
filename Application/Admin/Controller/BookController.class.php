@@ -175,12 +175,12 @@ class BookController extends Controller {
             $newdata['sort'] = I('post.sort');
             $newdata['chaptertitle'] = I('post.chaptertitle');
             $newdata['pid'] = I('post.bid');
-            $data = $this->bookLogic->getBookParamById(I('post.bid'));
-            $newdata['bookid'] = $data['bookid'];
+            $res = $this->bookLogic->getBookParamById(I('post.bid'));
+            $newdata['bookid'] = $res['bookid'];
             $newdata['createdate'] = date('Y-m-d H:i:s');
             $data = $this->Bookparam->add($newdata);
             if($data){
-                $this->redirect('Book/chaptermgr',array('id'=>$data['bid']));
+                $this->redirect('Book/chaptermgr',array('pid'=>$res['id']));
             }else{
                 $this->error('插入数据错误');
             }

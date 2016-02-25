@@ -65,7 +65,7 @@
                                 <input type="hidden" name="pid" value="{$data.pid}"/>
                                 <input type="hidden" name="bid" value="{$data.id}"/>
                                 <button type="submit" class="btn btn-success">保存</button>
-                                <a href="{:U('Book/chaptermgr')}" type="reset" class="btn btn-danger">取消</a>
+                                <a href="{:U('Book/chaptermgr',array('pid'=>$data['pid']))}" type="reset" class="btn btn-danger">取消</a>
                             </div>
                         </div>
                     </form>

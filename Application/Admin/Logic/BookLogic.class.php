@@ -22,7 +22,7 @@ class BookLogic extends \Think\Model{
         if(is_array($cond) && count($cond)>0){
             $mycond = $cond;
         }
-        $num = $this->Book->join('pn2_bookparam on pn2_book.id = pn2_bookparam.bookid')->where($mycond)->where('pn2_bookparam.isdel is null')->count();
+        $num = $this->Book->join('pl_bookparam on pl_book.id = pl_bookparam.bookid')->where($mycond)->where('pl_bookparam.isdel is null')->count();
         return $num;
     }
 
@@ -32,7 +32,7 @@ class BookLogic extends \Think\Model{
             $mycond = $cond;
         }
         $pstr = $p.','.C('ADMIN_REC_PER_PAGE');
-        $data = $this->Book->join('pn2_bookparam on pn2_book.id = pn2_bookparam.bookid')->where($mycond)->where('pn2_book.isdel is null and pid = 0')->page($pstr)->order('pn2_bookparam.id asc')->select();
+        $data = $this->Book->join('pl_bookparam on pl_book.id = pl_bookparam.bookid')->where($mycond)->where('pl_book.isdel is null and pid = 0')->page($pstr)->order('pl_bookparam.id asc')->select();
         return $data;
     }
 
@@ -68,7 +68,7 @@ class BookLogic extends \Think\Model{
         if(is_array($cond) && count($cond)>0){
             $mycond = $cond;
         }
-        $num = $this->Book->join('pn2_bookparam on pn2_book.id = pn2_bookparam.bookid')->where($mycond)->where('pn2_bookparam.isdel is null and pid != 0')->count();
+        $num = $this->Book->join('pl_bookparam on pl_book.id = pl_bookparam.bookid')->where($mycond)->where('pl_bookparam.isdel is null and pid != 0')->count();
         return $num;
     }
 
@@ -78,7 +78,7 @@ class BookLogic extends \Think\Model{
             $mycond = $cond;
         }
         $pstr = $p.','.C('ADMIN_REC_PER_PAGE');
-        $data = $this->Book->join('pn2_bookparam on pn2_book.id = pn2_bookparam.bookid')->where($mycond)->where('pn2_bookparam.isdel is null and pid != 0')->page($pstr)->order('pn2_bookparam.sort asc')->select();
+        $data = $this->Book->join('pl_bookparam on pl_book.id = pl_bookparam.bookid')->where($mycond)->where('pl_bookparam.isdel is null and pid != 0')->page($pstr)->order('pl_bookparam.sort asc')->select();
         return $data;
     }
 
@@ -87,7 +87,7 @@ class BookLogic extends \Think\Model{
         if(is_array($cond) && count($cond)>0){
             $mycond = $cond;
         }
-        $num = $this->Book->join('pn2_bookparam on pn2_book.id = pn2_bookparam.bookid')->where($mycond)->where('pn2_bookparam.isdel is null and pid != 0')->count();
+        $num = $this->Book->join('pl_bookparam on pl_book.id = pl_bookparam.bookid')->where($mycond)->where('pl_bookparam.isdel is null and pid != 0')->count();
         return $num;
     }
 
@@ -97,7 +97,7 @@ class BookLogic extends \Think\Model{
             $mycond = $cond;
         }
         $pstr = $p.','.C('ADMIN_REC_PER_PAGE');
-        $data = $this->Book->join('pn2_bookparam on pn2_book.id = pn2_bookparam.bookid')->where($mycond)->where('pn2_bookparam.isdel is null and pid != 0')->page($pstr)->order('pn2_bookparam.sort asc')->select();
+        $data = $this->Book->join('pl_bookparam on pl_book.id = pl_bookparam.bookid')->where($mycond)->where('pl_bookparam.isdel is null and pid != 0')->page($pstr)->order('pl_bookparam.sort asc')->select();
         return $data;
     }
 
@@ -115,9 +115,9 @@ class BookLogic extends \Think\Model{
         if(is_array($cond) && count($cond)>0){
             $mycond = $cond;
         }
-        $num = $this->Readrecord->join('pn2_bookparam on pn2_readrecord.paramid = pn2_bookparam.id')
-            ->join('pn2_book on pn2_readrecord.bookid = pn2_book.id')
-            ->where($mycond)->where('pn2_book.isdel is null')->order('pn2_bookparam.id asc')->count();
+        $num = $this->Readrecord->join('pl_bookparam on pl_readrecord.paramid = pl_bookparam.id')
+            ->join('pl_book on pl_readrecord.bookid = pl_book.id')
+            ->where($mycond)->where('pl_book.isdel is null')->order('pl_bookparam.id asc')->count();
         return $num;
     }
 
@@ -127,9 +127,9 @@ class BookLogic extends \Think\Model{
             $mycond = $cond;
         }
         $pstr = $p.','.C('ADMIN_REC_PER_PAGE');
-        $data = $this->Readrecord->join('pn2_bookparam on pn2_readrecord.paramid = pn2_bookparam.id')
-            ->join('pn2_book on pn2_readrecord.bookid = pn2_book.id')
-            ->where($mycond)->where('pn2_book.isdel is null')->page($pstr)->order('pn2_bookparam.id asc')->select();
+        $data = $this->Readrecord->join('pl_bookparam on pl_readrecord.paramid = pl_bookparam.id')
+            ->join('pl_book on pl_readrecord.bookid = pl_book.id')
+            ->where($mycond)->where('pl_book.isdel is null')->page($pstr)->order('pl_bookparam.id asc')->select();
         return $data;
     }
 

@@ -6,7 +6,7 @@
  * Time: 上午9:02
  */
 
-namespace Api\Logic;
+namespace Mobile\Logic;
 
 
 class CategoryLogic extends \Think\Model{
@@ -15,10 +15,9 @@ class CategoryLogic extends \Think\Model{
     }
     private $Category;
 
-    public function getCategoryList($type){
-        $data = $this->Category->where(array('type'=>$type))->order('id asc')->find();
-        $res = $this->Category->where(array('pid'=>$data['id']))->order('id asc')->select();
-        return $res;
+    public function getCategoryList($pid){
+        $data = $this->Category->where(array('pid'=>$pid))->order('id asc')->select();
+        return $data;
     }
 
 }

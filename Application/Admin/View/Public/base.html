@@ -223,6 +223,97 @@
 							</ul>
 						</li>
 						<php>}</php>
+						<li class="<block name='customermenu'></block>">
+							<a href="{:U('Customer/customermgr')}">
+								<span class="menu-icon">
+									<i class="fa fa-user-md fa-lg"></i>
+								</span>
+								<span class="text">
+									客户管理
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
+
+						<li class="<block name='reportmenu'></block>">
+							<a href="{:U('Report/index')}">
+								<span class="menu-icon">
+									<i class="fa fa-bar-chart-o fa-lg"></i>
+								</span>
+								<span class="text">
+									数据报表
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
+
+						<li class="openable  <block name='systemmenu'></block>">
+							<a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-inbox fa-lg"></i>
+								</span>
+								<span class="text">
+									系统管理
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+							<ul class="submenu">
+
+								<li class="<block name='systemsubmenurolemgr'></block>"><a href="{:U('System/rolemgr')}"><span class="submenu-label"><i class="fa fa-unlock fa-lg"></i>&nbsp;&nbsp;角色权限管理</span></a></li>
+
+								<li class="<block name='systemsubmenuadminusermgr'></block>"><a href="{:U('System/adminusermgr')}"><span class="submenu-label"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;用户管理</span></a></li>
+
+							</ul>
+						</li>
+
+						<li class="openable  <block name='signmenu'></block>">
+							<a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-inbox fa-lg"></i>
+								</span>
+								<span class="text">
+									签到管理
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+							<ul class="submenu">
+								<!--<li class="<block name='systemsubmenurolemgr'></block>"><a href="{:U('Sign/index')}"><span class="submenu-label"><i class="fa fa-unlock fa-lg"></i>&nbsp;&nbsp;签到积分管理</span></a></li>-->
+
+								<li class="<block name='systemsubmenuadminusermgr'></block>"><a href="{:U('Sign/usersignmgr')}"><span class="submenu-label"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;用户签到管理</span></a></li>
+							</ul>
+						</li>
+
+						<li class="openable  <block name='taskmenu'></block>">
+							<a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-inbox fa-lg"></i>
+								</span>
+								<span class="text">
+									做任务赚积分
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+							<ul class="submenu">
+								<li class="<block name='systemsubmenurolemgr'></block>"><a href="{:U('Task/index')}"><span class="submenu-label"><i class="fa fa-unlock fa-lg"></i>&nbsp;&nbsp;任务管理</span></a></li>
+								<li class="<block name='systemsubmenuadminusermgr'></block>"><a href="{:U('Task/usertaskmgr')}"><span class="submenu-label"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;用户任务管理</span></a></li>
+							</ul>
+						</li>
+
+						<li class="openable  <block name='taskmenu'></block>">
+							<a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-inbox fa-lg"></i>
+								</span>
+								<span class="text">
+									商城管理
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+							<ul class="submenu">
+								<li class="<block name='systemsubmenurolemgr'></block>"><a href="{:U('Product/index')}"><span class="submenu-label"><i class="fa fa-unlock fa-lg"></i>&nbsp;&nbsp;产品管理</span></a></li>
+								<li class="<block name='systemsubmenuadminusermgr'></block>"><a href="{:U('Product/userproductmgr')}"><span class="submenu-label"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;用户兑换产品管理</span></a></li>
+							</ul>
+						</li>
 					</ul>
 				</div><!-- /main-menu -->
 			</div><!-- /sidebar-inner scrollable-sidebar -->

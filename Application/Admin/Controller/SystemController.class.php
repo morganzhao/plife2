@@ -268,6 +268,7 @@ class SystemController extends Controller
 
         $newdata = array();
         $newdata['username'] = $response->username;
+        $newdata['token'] = $token;
         $newdata['nickname'] = $response->last_name.$response->first_name;
         $newdata['uid'] = $response->uid;
         $newdata['email'] = $response->email;

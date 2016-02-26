@@ -259,7 +259,7 @@ class SystemController extends Controller
     public function usersmgr(){
         $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $token = $_GET['token'];
-        $data = $this->publicDecrypt($token);
+//        $data = $this->publicDecrypt($token);
         $object = new \Curl\Curl\Curl();
         $object->get("http://user.pinet.co/api/get_user_data", array('token' =>$token));
         if($object->http_status_code == 200) {

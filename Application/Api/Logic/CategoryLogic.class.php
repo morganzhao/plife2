@@ -28,7 +28,7 @@ class CategoryLogic extends \Think\Model{
 			return '';
 		}
 		$prefix = C('DB_PREFIX');
-		$data = $this->categoryModel->field('category.id, category.name')
+		$data = $this->categoryModel->field('category.id, category.title')
 			->join(C('DB_PREFIX').'category as category ON category.pid = '.C('DB_PREFIX').'category.id')
 			->where(array($prefix.'category.category'=>$type, 'category.isdel' => array('neq', '1')))->select();
         return $data;

@@ -59,7 +59,7 @@ class GamesController extends Controller {
 
 		//按照id查询
 		$id = trim(I('post.id'));
-		if(!empty($uuid)){
+		if(!empty($id)){
 			$params['id'] =  $id;
 		}
 
@@ -69,13 +69,13 @@ class GamesController extends Controller {
 	}
 
 	function category(){
-		$data = $this->categoryLogic->getCategoryList('');
+		$data = $this->categoryLogic->getCategoryList('games');
 		$this->ajaxReturn($data);
 	}
 
 	function banner(){
 		$num = I('post.num','','int') ? I('post.num','','int') : 5;
-		$banner = $this->bannerLogic->getBanners('games', $num);
+		$banner = $this->bannerLogic->getBanners(array('category'=>'games'), $num);
 		$this->ajaxReturn($banner);
 	}
 

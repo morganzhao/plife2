@@ -37,3 +37,16 @@ CREATE TABLE IF NOT EXISTS `pl_game_file` (
 `update_time` DATETIME,
 PRIMARY KEY(`file_id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pl_records` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`mac` varchar(20) DEFAULT '',
+	`ip` varchar(15) DEFAULT NULL,
+	`os` varchar(16) DEFAULT '',
+	`os_version` varchar(16) DEFAULT '',
+	`type` enum('play','download') DEFAULT 'play',
+	`third_id` varchar(64) DEFAULT NULL,
+	`create_date` datetime DEFAULT NULL,
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+ALTER TABLE `pl_category` ADD COLUMN `category` VARCHAR(30) DEFAULT '' COMMENT '不同分类的类型：video games book shop country'

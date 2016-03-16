@@ -25,6 +25,7 @@ class VideoController extends Controller {
 	 * @param string category : (可选) 口味：‘剧情’，‘动作’，...，默认：全部
 	 * @param string area : (可选) 国家：‘中国’，‘美国’，...，默认：全部
 	 * @param int year : （可选）年份：‘2016’，‘2015’，...，默认：全部
+	 * @param int recommend : （可选）是否是推荐，1:推荐 0或者不设置:全部 
 	 *
 	 * @return json : list
 	 * */

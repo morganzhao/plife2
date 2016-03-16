@@ -1,20 +1,21 @@
 <?php
-/**
- * Created by vim.
+
+/* reated by vim.
  * User: Jason Hu
  * Date: 2016-03-07
  * Time: 18:50
- */
+ * */
 
 namespace Api\Logic;
 
 
-class VideoLogic extends \Think\Model{
+class GamesLogic extends \Think\Model{
 
-	private $videoOrder = array(1=>"creatime",2=>"viewtimes");   // 排序关键词，1:时间，2:热门
+	private $gamesModel;
+	private $appOrder = array(1=>"creatime", 2=>"downtimes");   // 排序关键词，1:时间，2:热门
 
 	public function __construct(){
-		$this->videoModel = M('Video');
+		$this->gamesModel = M('app');
 	}
 
 	/**
@@ -26,7 +27,7 @@ class VideoLogic extends \Think\Model{
 	 * @param int $limit : （可选）每次获取的记录条数，默认系统分配（也不可超过系统分配限制数）
 	 * @return json : list
 	 **/
-	public function getVideos($condition=array(), $page=1, $sort=1, $limit=0){
+	public function getGames($condition=array(), $page=1, $sort=1, $limit=0){
 		$mycond = array();
 		if(is_array($condition) && count($condition)>0){
 			$mycond = $condition;
@@ -38,16 +39,18 @@ class VideoLogic extends \Think\Model{
 		}else{
 			$curpage = $page.','.C('MOB_REC_PER_PAGE');
 		}
-		if (array_key_exists($sort, $this->videoOrder)){
-			$order = $this->videoOrder[$sort];}
+		if (array_key_exists($sort, $this->appOrder)){
+			$order = $this->appOrder[$sort];}
 		else{
-			$order = $this->videoOrder[1];
+			$order = $this->appOrder[1];
 		}
-		return $this->videoModel->where($mycond)->page($curpage)->order("$order desc")->select();
+		$data = $this->gamesModel->where($mycond)->page($curpage)->order("$order desc")->select();
+		return $data;
 	}
 
-	function changePlayCount($id = ''){
-		$this->videoModel->where(array('id' => $id))->setInc('viewtimes', 1);	
-		return $this->videoModel->where(array('id' => $id))->getField('viewtimes');
+	function changeDownloadCount($id){
+		$this->gamesModel->where(array('id' => $id))->setInc('downtimes', 1);	
+		return $this->gamesModel->where(array('id' => $id))->getField('downtimes');
 	}
 }
+

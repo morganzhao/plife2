@@ -1,27 +1,24 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: IceLight
- * Date: 15/11/20
- * Time: 上午9:02
+ * Created by vim.
+ * User: Jason Hu
+ * Date: 2016-03-07
+ * Time: 18:50
  */
 
-namespace Mobile\Logic;
+namespace Api\Logic;
 
 
 class BannerLogic extends \Think\Model{
-    public function __construct(){
-        $this->Banner = M('Banner');
-    }
-    private $Banner;
 
-    public function getBannerList($cond=array(), $p){
-        $mycond = array();
-        if(is_array($cond) && count($cond)>0){
-            $mycond = $cond;
-        }
-        $pstr = $p.','.C('ADMIN_REC_PER_PAGE');
-        $data = $this->Banner->where($mycond)->where('isdel is null')->page($pstr)->order('sort asc')->select();
-        return $data;
-    }
+	private $bannerModel;
+
+	public function __construct(){
+		$this->bannerModel = M('banner');
+	}
+
+	public function getBanners($condition=array(), $num = 5){
+		$condition['status'] = '1';
+		return $this->bannerModel->limit($num)->where($condition)->select();
+	}
 }

@@ -35,7 +35,7 @@ CREATE TABLE `pl_admin` (
   `issuper` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否超级管理员，0：否 1：是',
   `totalscore` int(10) NOT NULL COMMENT '用户积分',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=1010 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `pl_admingroup` (
   `priv` text NOT NULL COMMENT '管理员组权限',
   `isban` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否冻结 0：正常 1：冻结',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='该表用于记录后台管理员权限组';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='该表用于记录后台管理员权限组';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +107,7 @@ CREATE TABLE `pl_app` (
   `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态：1.上架 2.下架',
   `isdel` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +142,7 @@ CREATE TABLE `pl_banner` (
   `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态：1.上架 2.下架',
   `isdel` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `pl_book` (
   `isdel` timestamp NULL DEFAULT NULL,
   `createdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +215,7 @@ CREATE TABLE `pl_bookparam` (
   KEY `uid` (`uid`),
   KEY `pn2_bookparam_ibfk_1` (`bookid`),
   CONSTRAINT `pl_bookparam_ibfk_1` FOREIGN KEY (`bookid`) REFERENCES `pl_book` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,7 +245,7 @@ CREATE TABLE `pl_category` (
   `description` varchar(255) DEFAULT NULL COMMENT '分类描述',
   `isdel` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -274,7 +274,7 @@ CREATE TABLE `pl_comment` (
   `creatime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isdel` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='评论表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='评论表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +331,7 @@ CREATE TABLE `pl_dns` (
   `creatime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isdel` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -359,7 +359,7 @@ CREATE TABLE `pl_function` (
   `creatime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isdel` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='首页功能模块表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='首页功能模块表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -388,7 +388,7 @@ CREATE TABLE `pl_position` (
   `creatime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isdel` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -423,7 +423,7 @@ CREATE TABLE `pl_post` (
   PRIMARY KEY (`id`),
   KEY `cate_id` (`cate_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -456,7 +456,7 @@ CREATE TABLE `pl_product` (
   `isonline` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否上架：0:否，1:是',
   `categoryid` int(11) NOT NULL COMMENT '产品分类',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1015 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='商城物品表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='商城物品表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -487,7 +487,7 @@ CREATE TABLE `pl_readrecord` (
   `createdate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -544,7 +544,7 @@ CREATE TABLE `pl_task` (
   `starttimes` datetime NOT NULL COMMENT '开始时间',
   `endtimes` datetime NOT NULL COMMENT '结束时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1058 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='任务表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='任务表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -570,7 +570,7 @@ CREATE TABLE `pl_user_product` (
   `productid` int(10) NOT NULL COMMENT '产品ID',
   `exchangetimes` datetime NOT NULL COMMENT '兑换时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1032 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户物品兑换表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户物品兑换表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -598,7 +598,7 @@ CREATE TABLE `pl_user_sign` (
   `score` int(10) NOT NULL COMMENT '获得积分',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否签到，0：否 1：是',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1040 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户签到表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户签到表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -624,7 +624,7 @@ CREATE TABLE `pl_user_task` (
   `taskid` int(10) NOT NULL COMMENT '任务ID',
   `finishtimes` datetime NOT NULL COMMENT '完成时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1035 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户完成任务表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='用户完成任务表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -665,9 +665,9 @@ CREATE TABLE `pl_video` (
   `filepath` varchar(100) DEFAULT NULL COMMENT '路径地址',
   `creatime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态：1.上架 2.下架',
-  `isdel` timestamp NULL DEFAULT NULL,
+  `isdel` enum('0', '1')  DEFAULT '0' commit '0:default 1:delete',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=408 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -692,7 +692,7 @@ CREATE TABLE `pl_video_tmp` (
   `uuid` varchar(64) NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=506 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

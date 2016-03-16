@@ -2,6 +2,15 @@
 return array(
 	//'配置项'=>'配置值'
     'MOB_REC_PER_PAGE' => 10,
+	'HM_PLAY' => array(
+		'url' => 'http://hm.play.cn/api/v1/data_sync/get_data',	
+		'caller' => 'egame_hm_pinet',	
+		'signKey' => 'd496ab763b48815da5370560f5d03422',	
+		'encrypt' => 'base64'	
+	),
+	'LOAD_EXT_CONFIG'		=> 'route',
+
+
     'MMS_SERVER'=> 'http://192.168.11.110/plife/videos',
     'REFRESH_TIME' => 10,
     'video_columns'=>array(
